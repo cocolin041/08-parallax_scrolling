@@ -2,8 +2,9 @@
 body {
   background-color: #1469FF;
   height: 100vh;
+  overflow: hidden;
 }
-/* line 5, ../../sass/partials/home.scss */
+/* line 6, ../../sass/partials/home.scss */
 body .container-big {
   height: 100%;
   display: flex;
@@ -11,43 +12,47 @@ body .container-big {
   justify-content: center;
   position: relative;
 }
-/* line 13, ../../sass/partials/home.scss */
+/* line 14, ../../sass/partials/home.scss */
 body .container-big .square {
   position: absolute;
   z-index: 1;
   width: 450px;
   height: 420px;
   background: #000000;
+  transform: rotate(0deg);
+  animation: rotate_left 4s linear 0s, first_enlarge 0.5s linear 4.1s forwards;
 }
-/* line 20, ../../sass/partials/home.scss */
+/* line 24, ../../sass/partials/home.scss */
 body .container-big .circle {
+  position: absolute;
   z-index: 2;
   width: 534px;
   height: 539px;
   background: #0027C8;
   border-radius: 50%;
-  /*to center the child block*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  animation: scale_large_small 4s linear 0s, second_enlarge 0.5s linear 4.6s forwards;
 }
-/* line 31, ../../sass/partials/home.scss */
-body .container-big .circle .container-small {
+/* line 34, ../../sass/partials/home.scss */
+body .container-big .container-small {
+  position: absolute;
+  z-index: 3;
   width: 365px;
   height: 365px;
-  position: relative;
+  transform: rotate(0deg);
+  animation: rotate_right 4s linear 0s, third_enlarge 0.5s linear 5.1s forwards;
 }
-/* line 36, ../../sass/partials/home.scss */
-body .container-big .circle .container-small .arrow-up {
+/* line 42, ../../sass/partials/home.scss */
+body .container-big .container-small .arrow-up {
   position: absolute;
   width: 0;
   height: 0;
   border-left: 182.5px solid transparent;
   border-right: 182.5px solid transparent;
   border-bottom: 313px solid #FF3C82;
+  animation: disappear 1s linear 5.6s forwards;
 }
-/* line 44, ../../sass/partials/home.scss */
-body .container-big .circle .container-small .arrow-down {
+/* line 51, ../../sass/partials/home.scss */
+body .container-big .container-small .arrow-down {
   position: absolute;
   bottom: 0;
   width: 0;
@@ -55,8 +60,9 @@ body .container-big .circle .container-small .arrow-down {
   border-left: 182.5px solid transparent;
   border-right: 182.5px solid transparent;
   border-top: 313px solid #FF3C82;
+  animation: disappear 1s linear 5.6s forwards;
 }
-/* line 55, ../../sass/partials/home.scss */
+/* line 62, ../../sass/partials/home.scss */
 body .container-big .title {
   z-index: 3;
   position: absolute;
@@ -64,11 +70,75 @@ body .container-big .title {
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
+  animation: disappear 1s linear 5.6s forwards;
 }
-/* line 63, ../../sass/partials/home.scss */
+/* line 71, ../../sass/partials/home.scss */
 body .container-big .sub-title {
   font-size: 24px;
   font-weight: normal;
   color: #FFFFFF;
   line-height: 36px;
+  animation: disappear 1s linear 5.6s forwards;
+}
+
+@keyframes rotate_right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate_left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes scale_large_small {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes first_enlarge {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10);
+  }
+}
+@keyframes second_enlarge {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10);
+  }
+}
+@keyframes third_enlarge {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10);
+  }
+}
+@keyframes disappear {
+  from {
+    border-color: #FF3C82;
+    opacity: 1;
+  }
+  to {
+    border-color: blue;
+    opacity: 0;
+  }
 }
