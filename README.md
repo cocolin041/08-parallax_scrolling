@@ -1,7 +1,7 @@
 # parallax-scrolling
 
 ## Guide link: 
-https://hexschool.github.io/THE_F2E_Design/week8-parallax%20scrolling/
+https://hexschool.github.io/THE_F2E_Design/week8-parallax%20scrolling/<br>
 https://www.youtube.com/watch?v=xViDpVyIBoU
 
 ## Demo link: 
